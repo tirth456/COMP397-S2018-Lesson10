@@ -6,6 +6,8 @@ module scenes {
         private _island:objects.Island;
         private _clouds:objects.Cloud[];
         private _cloudNum:number;
+        
+        public engineSound:createjs.AbstractSoundInstance;
 
         // constructors
         constructor() {
@@ -24,6 +26,11 @@ module scenes {
 
         // public methods
         public Start():void {
+            this.engineSound = createjs.Sound.play("engine");
+            this.engineSound.loop = -1;
+            this.engineSound.volume = 0.1;
+
+
             this._plane = new objects.Plane();
             this._ocean = new objects.Ocean();
             this._island = new objects.Island();
@@ -42,8 +49,11 @@ module scenes {
             this._ocean.Update();
             this._island.Update();
 
+            managers.Collision.check(this._plane, this._island);
+
             this._clouds.forEach(cloud => {
                 cloud.Update();
+                managers.Collision.check(this._plane, cloud);
             });
             
         }

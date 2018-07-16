@@ -19,17 +19,30 @@ var scenes;
             return _this;
         }
         // private methods
+        Play.prototype._buildClouds = function () {
+            for (var count = 0; count < this._cloudNum; count++) {
+                this._clouds.push(new objects.Cloud());
+                //this._clouds[count] = new objects.Cloud();
+            }
+        };
         // public methods
         Play.prototype.Start = function () {
             this._plane = new objects.Plane();
             this._ocean = new objects.Ocean();
             this._island = new objects.Island();
+            // creates an empty array of type Cloud
+            this._clouds = new Array();
+            this._cloudNum = 3;
+            this._buildClouds();
             this.Main();
         };
         Play.prototype.Update = function () {
             this._plane.Update();
             this._ocean.Update();
             this._island.Update();
+            this._clouds.forEach(function (cloud) {
+                cloud.Update();
+            });
         };
         Play.prototype.Reset = function () {
         };
@@ -44,6 +57,11 @@ var scenes;
             this.addChild(this._island);
             // adding the plane to the scene
             this.addChild(this._plane);
+            // adding the cloud to the scene
+            for (var _i = 0, _a = this._clouds; _i < _a.length; _i++) {
+                var cloud = _a[_i];
+                this.addChild(cloud);
+            }
         };
         return Play;
     }(objects.Scene));

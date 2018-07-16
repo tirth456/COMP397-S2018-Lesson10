@@ -7,9 +7,10 @@ module objects {
         public halfHeight:number;
 
         // constructors
-        constructor(imagePath) {
-            super(managers.Game.AssetManager.getResult(imagePath));
+        constructor(imageString:string) {
+            super(managers.Game.AssetManager.getResult(imageString));
 
+            this.name = imageString;
             this._initialize();
 
 

@@ -21,11 +21,11 @@ var scenes;
         // private methods
         // public methods
         Play.prototype.Start = function () {
-            this._playLabel = new objects.Label("Play!", "60px", "Consolas", "#000000", 320, 240, true);
-            this._nextButton = new objects.Button("NextButton", 320, 360, true);
+            this._plane = new objects.Plane();
             this.Main();
         };
         Play.prototype.Update = function () {
+            this._plane.Update();
         };
         Play.prototype.Reset = function () {
         };
@@ -33,11 +33,8 @@ var scenes;
             this.removeAllChildren();
         };
         Play.prototype.Main = function () {
-            this.addChild(this._playLabel);
-            this.addChild(this._nextButton);
-            this._nextButton.on("click", function () {
-                managers.Game.CurrentState = config.Scene.END;
-            }, this);
+            console.log("Starting - PLAY SCENE");
+            this.addChild(this._plane);
         };
         return Play;
     }(objects.Scene));

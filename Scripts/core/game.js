@@ -10,7 +10,8 @@
     var Manifest = [
         { id: "StartButton", src: "/Assets/images/StartButton.png" },
         { id: "NextButton", src: "/Assets/images/NextButton.png" },
-        { id: "BackButton", src: "/Assets/images/BackButton.png" }
+        { id: "BackButton", src: "/Assets/images/BackButton.png" },
+        { id: "plane", src: "/Assets/images/plane.png" }
     ];
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color: green;");
@@ -24,6 +25,7 @@
         console.log("%c Game Initializing...", "font-weight:bold; font-size:20px; color: red;");
         canvas = document.getElementsByTagName("canvas")[0];
         stage = new createjs.Stage(canvas);
+        managers.Game.Stage = stage; // create a reference to the stage class
         stage.enableMouseOver(20); // enables mouse over events
         createjs.Ticker.framerate = 60; // sets framerate to 60fps
         createjs.Ticker.on("tick", Update);
@@ -41,7 +43,7 @@
         stage.update();
     }
     function Main() {
-        console.log("%c Main Game Started...", "font-style:italic; font-size:16px; color:blue;");
+        console.log("%c Switching Scenes...", "font-style:italic; font-size:16px; color:blue;");
         if (CurrentScene) {
             CurrentScene.Destroy();
             stage.removeChild(CurrentScene);

@@ -3,6 +3,7 @@ module scenes {
         // member variables
         private _plane:objects.Plane;
         private _ocean:objects.Ocean;
+        private _island:objects.Island;
 
         // constructors
         constructor() {
@@ -17,6 +18,7 @@ module scenes {
         public Start():void {
             this._plane = new objects.Plane();
             this._ocean = new objects.Ocean();
+            this._island = new objects.Island();
            
             this.Main();
         }
@@ -24,6 +26,7 @@ module scenes {
         public Update():void {
             this._plane.Update();
             this._ocean.Update();
+            this._island.Update();
         }
 
         public Reset():void {
@@ -39,6 +42,9 @@ module scenes {
 
             // adding the ocean to the scene
             this.addChild(this._ocean);
+
+            // adding the island to the scene
+            this.addChild(this._island);
 
             // adding the plane to the scene
             this.addChild(this._plane);

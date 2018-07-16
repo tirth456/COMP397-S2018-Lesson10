@@ -23,11 +23,13 @@ var scenes;
         Play.prototype.Start = function () {
             this._plane = new objects.Plane();
             this._ocean = new objects.Ocean();
+            this._island = new objects.Island();
             this.Main();
         };
         Play.prototype.Update = function () {
             this._plane.Update();
             this._ocean.Update();
+            this._island.Update();
         };
         Play.prototype.Reset = function () {
         };
@@ -38,6 +40,8 @@ var scenes;
             console.log("Starting - PLAY SCENE");
             // adding the ocean to the scene
             this.addChild(this._ocean);
+            // adding the island to the scene
+            this.addChild(this._island);
             // adding the plane to the scene
             this.addChild(this._plane);
         };

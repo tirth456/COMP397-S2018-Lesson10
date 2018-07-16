@@ -12,7 +12,9 @@
         { id: "NextButton", src: "/Assets/images/NextButton.png" },
         { id: "BackButton", src: "/Assets/images/BackButton.png" },
         { id: "plane", src: "/Assets/images/plane.png" },
-        { id: "ocean", src: "/Assets/images/ocean.gif" }
+        { id: "ocean", src: "/Assets/images/ocean.gif" },
+        { id: "island", src: "/Assets/images/island.png" },
+        { id: "cloud", src: "/Assets/images/cloud.png" }
     ];
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color: green;");

@@ -22,10 +22,12 @@ var scenes;
         // public methods
         Play.prototype.Start = function () {
             this._plane = new objects.Plane();
+            this._ocean = new objects.Ocean();
             this.Main();
         };
         Play.prototype.Update = function () {
             this._plane.Update();
+            this._ocean.Update();
         };
         Play.prototype.Reset = function () {
         };
@@ -34,6 +36,9 @@ var scenes;
         };
         Play.prototype.Main = function () {
             console.log("Starting - PLAY SCENE");
+            // adding the ocean to the scene
+            this.addChild(this._ocean);
+            // adding the plane to the scene
             this.addChild(this._plane);
         };
         return Play;

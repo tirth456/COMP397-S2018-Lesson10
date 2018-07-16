@@ -11,7 +11,8 @@
         { id: "StartButton", src: "/Assets/images/StartButton.png" },
         { id: "NextButton", src: "/Assets/images/NextButton.png" },
         { id: "BackButton", src: "/Assets/images/BackButton.png" },
-        { id: "plane", src: "/Assets/images/plane.png" }
+        { id: "plane", src: "/Assets/images/plane.png" },
+        { id: "ocean", src: "/Assets/images/ocean.gif" }
     ];
     function Init() {
         console.log("%c Assets Loading...", "font-weight:bold; font-size:20px; color: green;");
